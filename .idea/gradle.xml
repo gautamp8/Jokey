@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/appEngineBackend" />
             <option value="$PROJECT_DIR$/jokeDisplayLibrary" />
+            <option value="$PROJECT_DIR$/jokesproviderlib" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
