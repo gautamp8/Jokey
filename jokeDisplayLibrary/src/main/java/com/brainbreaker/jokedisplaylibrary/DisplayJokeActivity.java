@@ -41,7 +41,7 @@ public class DisplayJokeActivity extends AppCompatActivity {
                 spinner.setVisibility(View.VISIBLE);
                 // 3. If on free version -> immediately display add (min 5) then click forward to joke
                 // 4. Animate the shit out of it.
-                Snackbar.make(jokeTextHolder, "Retrieving Joke", Snackbar.LENGTH_INDEFINITE)
+                Snackbar.make(jokeTextHolder, "Retrieving Joke...", Snackbar.LENGTH_INDEFINITE)
                         .setAction("Okay", new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
