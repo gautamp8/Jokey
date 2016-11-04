@@ -5,13 +5,13 @@ package com.brainbreaker.jokey.backend;
  */
 public class MyBean {
 
-    private String myData;
+    private String myJoke;
 
-    public String getData() {
-        return myData;
+    public String getMyJoke() {
+        return myJoke;
     }
 
-    public void setData(String data) {
-        myData = data;
+    public void setMyJoke(String joke) {
+        myJoke = joke;
     }
 }
