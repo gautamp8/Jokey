@@ -30,11 +30,9 @@ public class MyEndpoint {
     /**
      * A simple endpoint method that returns a random joke.
      */
-    @ApiMethod(name = "getJoke")
-    public MyBean getJoke() {
-        MyBean response = new MyBean();
-        response.setData(Joker.makeMeLaugh());
-        return response;
+    @ApiMethod(name = "setJoke")
+    public MyBean setJoke(MyBean newBean) {
+        return newBean;
     }
 }
 

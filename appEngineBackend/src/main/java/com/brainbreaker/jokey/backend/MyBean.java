@@ -1,17 +1,20 @@
 package com.brainbreaker.jokey.backend;
 
+import com.brainbreaker.jokesprovider.Joker;
+
 /**
  * The object model for the data we are sending through endpoints
  */
 public class MyBean {
 
-    private String myData;
+    private Joker joker;
 
-    public String getData() {
-        return myData;
+    MyBean() {
+        joker = new Joker();
     }
 
-    public void setData(String data) {
-        myData = data;
+    public String getJoke() {
+        return joker.getRandomJoke();
     }
+
 }

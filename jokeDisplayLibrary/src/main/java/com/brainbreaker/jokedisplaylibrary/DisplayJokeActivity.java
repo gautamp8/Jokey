@@ -5,6 +5,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -25,7 +26,7 @@ public class DisplayJokeActivity extends AppCompatActivity {
         spinner = (ProgressBar) findViewById(R.id.pbSpinner);
 
         Bundle extras = getIntent().getExtras();
-
+        Log.e("Extras String", extras.getString(JOKE_TEXT));
         if (extras != null) {
             jokeTextHolder.setText(extras.getString(JOKE_TEXT));
         }
@@ -35,7 +36,7 @@ public class DisplayJokeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 button.setVisibility(View.GONE);
                 // 1. Retrieve joke from backend using async task.
-                new FetchAsyncTask(DisplayJokeActivity.this).execute();
+//                new FetchAsyncTask(DisplayJokeActivity.this).execute();
                 // 2. Clear existing joke, display load indicator while waiting.
                 jokeTextHolder.setVisibility(View.GONE);
                 spinner.setVisibility(View.VISIBLE);
