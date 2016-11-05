@@ -1,10 +1,10 @@
-package com.brainbreaker.jokedisplaylibrary;
+package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.AsyncTask;
-import android.util.Log;
 
+import com.brainbreaker.jokedisplaylibrary.DisplayJokeActivity;
 import com.brainbreaker.jokey.backend.myApi.MyApi;
 import com.brainbreaker.jokey.backend.myApi.model.MyBean;
 import com.google.api.client.extensions.android.http.AndroidHttp;
@@ -64,13 +64,5 @@ public class FetchAsyncTask extends AsyncTask<Void, Void, String> {
         super.onPostExecute(result);
         if (this.listener != null)
             this.listener.onComplete(result, error);
-        Log.e("Result", result);
-        // Launch intent to joke display activity.
-        Intent intent = new Intent(context, DisplayJokeActivity.class);
-        // Indicate data to display.
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.putExtra(DisplayJokeActivity.JOKE_TEXT, result);
-        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        context.startActivity(intent);
     }
 }
