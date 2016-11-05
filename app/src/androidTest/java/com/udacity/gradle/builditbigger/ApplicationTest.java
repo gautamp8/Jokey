@@ -1,6 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.app.Application;
+import android.os.AsyncTask;
 import android.test.AndroidTestCase;
 import android.test.ApplicationTestCase;
 
@@ -14,7 +15,15 @@ public class ApplicationTest extends AndroidTestCase{
     private final CountDownLatch mSignal = new CountDownLatch(1);
 
     public void testJokeRetriever() {
-        new JokeRetrieverTask(new TestJokeListener()).execute();
+        FetchAsyncTask fetchAsyncTask = new FetchAsyncTask(getContext());
+        fetchAsyncTask.setListener(new FetchAsyncTask.TaskListener() {
+            @Override
+            public void onComplete(String jokeString, Exception e) {
+                assertTrue(jokeString != null && jokeString.length() > 0);
+                mSignal.countDown();
+            }
+        });
+        fetchAsyncTask.execute();
         try {
             boolean success = mSignal.await(5, TimeUnit.SECONDS);
             if (!success) {
@@ -22,15 +31,6 @@ public class ApplicationTest extends AndroidTestCase{
             }
         } catch (InterruptedException e) {
             fail();
-        }
-    }
-
-    private class TestJokeListener implements JokeRetrieverTask.OnJokeRetrievedListener {
-
-        @Override
-        public void onJokeRetrieved(String joke) {
-            assertTrue(joke != null && joke.length() > 0);
-            mSignal.countDown();
         }
     }
 }

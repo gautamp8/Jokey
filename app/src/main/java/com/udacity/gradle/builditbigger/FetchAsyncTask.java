@@ -1,10 +1,7 @@
 package com.udacity.gradle.builditbigger;
 
 import android.content.Context;
-import android.content.Intent;
 import android.os.AsyncTask;
-
-import com.brainbreaker.jokedisplaylibrary.DisplayJokeActivity;
 import com.brainbreaker.jokey.backend.myApi.MyApi;
 import com.brainbreaker.jokey.backend.myApi.model.MyBean;
 import com.google.api.client.extensions.android.http.AndroidHttp;
